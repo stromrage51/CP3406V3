@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addRecipeidgents_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".databases.NewRecipe">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarz"
+            android:layout_width="0dp"
+            android:background="@color/lightprimary"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:title="Create a Recipe :)" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addRecipeName_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarz">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addRecipeName"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:background="@color/lightprimary"
+                android:layout_height="wrap_content"
+                android:hint="Add Name Of Recipe" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addRecipeCategory_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRecipeName_container">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/addRecipeCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:minHeight="48dp"
+                android:hint="Add Category"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:textStyle="bold"
+                android:background="@color/lightprimary" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addRecipeSteps_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRecipeCategory_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addRecipeSteps"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:background="@color/lightprimary"
+                android:layout_height="wrap_content"
+                android:hint="Add steps to Recipe" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addRecipeidgentis_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRecipeSteps_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addRecipeidgentis"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:background="@color/lightprimary"
+                android:layout_height="wrap_content"
+                android:hint="Ingedints" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/addRecipeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/pizza"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRecipeidgentis_container"
+            />
+
+        <Button
+            android:id="@+id/addRecipeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="AddNewRecipe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addRecipeImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".databases.RecipesHolder">
+
+  <com.google.android.material.appbar.MaterialToolbar
+      android:id="@+id/toolbarz"
+      android:layout_width="0dp"
+      android:layout_height="?attr/actionBarSize"
+      android:background="?attr/colorPrimary"
+      android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+      app:titleTextColor="@android:color/white"
+      app:title="Recipe"
+      app:navigationIcon="@drawable/abc_ic_ab_back_material"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+
+
+  <ImageView
+      android:id="@+id/img_recipe"
+      android:layout_width="0dp"
+      android:layout_height="220dp"
+      android:scaleType="centerCrop"
+      app:layout_constraintTop_toBottomOf="@id/toolbarz"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:srcCompat="@drawable/pizza" />
+
+
+  <TextView
+      android:id="@+id/holder_Recipe_Name"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:text="Recipe Title"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/img_recipe" />
+
+  <TextView
+      android:id="@+id/category_holder"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="Category"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="@+id/holder_Recipe_Name"
+      app:layout_constraintTop_toBottomOf="@+id/holder_Recipe_Name" />
+
+
+  <TextView
+      android:id="@+id/steps_holder"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:gravity="start"
+      android:text="Steps"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/category_holder" />
+
+  <TextView
+      android:id="@+id/indgetints_holder"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:gravity="start"
+      android:text="indgetints"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/steps_holder" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

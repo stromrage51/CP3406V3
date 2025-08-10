@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "590845830877",
+    "project_id": "recipe-app-2-c5da0",
+    "storage_bucket": "recipe-app-2-c5da0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590845830877:android:244bc867a78ae2b4dedd34",
+        "android_client_info": {
+          "package_name": "au.edu.jcu.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgQCDmARCuudteiPVmlcZnCoNESuCI9-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
