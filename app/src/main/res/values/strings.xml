@@ -75,4 +75,7 @@
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
     <string name="title_search">search</string>
+    <string name="min">min</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
 </resources>

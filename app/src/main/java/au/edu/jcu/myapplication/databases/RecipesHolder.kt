@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -39,6 +40,9 @@ class RecipesHolder : AppCompatActivity() {
         FirebaseDatabase.getInstance().getReference("Recipes") }
 
 
+    // timer
+    private var countDownTimer: CountDownTimer? = null
+    private var remainingMillis: Long = 0L
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -90,6 +94,19 @@ class RecipesHolder : AppCompatActivity() {
             finish()
             return
         }
+
+        //timer
+        binding.timerStartBtn.setOnClickListener {
+            val minText = binding.timerMinutesInput.text?.toString()?.trim()
+            val mins = minText?.toIntOrNull()
+            if (mins == null || mins <= 0) {
+                Toast.makeText(this, "Enter minutes (e.g 10)", Toast.LENGTH_SHORT).show()
+            } else {
+                startTimer(mins)
+            }
+        }
+
+        binding.timerStopBtn.setOnClickListener { stopTimer() }
 
         //load the recipe
         loadRecipe(requireNotNull(recipeId))
@@ -193,9 +210,20 @@ class RecipesHolder : AppCompatActivity() {
             .error(R.drawable.pizza)
             .into(binding.imgRecipe)
 
+        val suggested = getSuggestedCookTime(it.id)
+        if (suggested != null) {
+            binding.timerMinutesInput.setText(suggested.toString())
+        }
 
     }
 
+    //timer
+    private fun getSuggestedCookTime(id: String?): Int? {
+        if (id.isNullOrBlank()) return null
+        val sp = getSharedPreferences("recipe_suggestions", Context.MODE_PRIVATE)
+        val v = sp.getInt("cooktime_$id", -1)
+        return if (v > 0) v else null
+    }
 
 
 
@@ -276,6 +304,44 @@ class RecipesHolder : AppCompatActivity() {
             .setNegativeButton("Cancel", null)
             .show()
     }
+
+
+    //////////////////////////////////////////////////////
+
+    //fixed timer
+    private fun startTimer(minutes: Int) {
+        val total = minutes.coerceAtLeast(1) * 60 * 1000L
+        remainingMillis = total
+        countDownTimer?.cancel()
+        countDownTimer = object : CountDownTimer(total, 1000) {
+            override fun onTick(msLeft: Long) {
+                remainingMillis = msLeft
+                val secs = msLeft / 1000
+                val m = secs / 60
+                val s = secs % 60
+                binding.timerText.text = String.format("%02d:%02d", m, s)
+            }
+
+            override fun onFinish() {
+                remainingMillis = 0
+                binding.timerText.text = "00:00"
+                Toast.makeText(this@RecipesHolder, "Time’s up!", Toast.LENGTH_SHORT).show()
+            }
+        }.start()
+    }
+
+    private fun stopTimer() {
+        countDownTimer?.cancel()
+        countDownTimer = null
+        remainingMillis = 0
+        binding.timerText.text = "00:00"
+    }
+    override fun onDestroy() {
+        countDownTimer?.cancel()
+        super.onDestroy()
+    }
+
+
 
 
 

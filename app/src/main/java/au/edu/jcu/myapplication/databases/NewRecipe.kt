@@ -36,7 +36,6 @@ import java.io.ByteArrayOutputStream
 class NewRecipe : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewRecipeBinding
-    private var imageUri: Uri? = null
     private var recipeId: String? = null
     private var isEdit = false
     private var recipeImageSet = false
@@ -437,6 +436,7 @@ class NewRecipe : AppCompatActivity() {
         val capabilities = cm.getNetworkCapabilities(network) ?: return false
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
+
 
 
 }

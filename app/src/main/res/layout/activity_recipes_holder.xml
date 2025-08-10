@@ -85,5 +85,69 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/steps_holder" />
 
+  <!-- Timer section -->
+  <LinearLayout
+      android:id="@+id/timerSection"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_marginTop="16dp"
+      android:gravity="center_vertical"
+      android:padding="15dp"
+      app:layout_constraintTop_toBottomOf="@id/indgetints_holder"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent">
+
+    <EditText
+        android:id="@+id/timerMinutesInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/min"
+        android:inputType="number"
+        android:layout_marginEnd="16dp"
+        android:maxLength="3"
+        android:padding="8dp"
+        android:autofillHints="min" />
+
+
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"/>
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/timerSection2"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_marginTop="16dp"
+      android:gravity="center_vertical"
+      android:padding="15dp"
+      app:layout_constraintTop_toBottomOf="@id/timerSection"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent">
+
+    <Button
+        android:id="@+id/timerStartBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="12dp"/>
+
+    <Button
+        android:id="@+id/timerStopBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/stop" />
+
+  </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
