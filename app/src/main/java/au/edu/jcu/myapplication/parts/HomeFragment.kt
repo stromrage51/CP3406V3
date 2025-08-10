@@ -20,13 +20,10 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import au.edu.jcu.myapplication.category.Category
-import au.edu.jcu.myapplication.categorys.CategoryDao
 import au.edu.jcu.myapplication.categorys.CategoryEntity
 import au.edu.jcu.myapplication.databasepleaswork.HorzRecipeAdapter
 import au.edu.jcu.myapplication.databasepleaswork.RecipeFav
-import au.edu.jcu.myapplication.databases.Adapter_Recipe_Class
 import au.edu.jcu.myapplication.databases.NewRecipe
 import au.edu.jcu.myapplication.databases.Recipe
 import au.edu.jcu.myapplication.databases.RecipeDetails
@@ -241,7 +238,7 @@ class HomeFragment : Fragment() {
             Toast.makeText(requireContext(), "Name cannot be empty.", Toast.LENGTH_SHORT).show()
             return
         }
-        //prevent dupes by lowecase check
+        //prevent dupes by lowecase checks
         if (categorySet.contains(name.lowercase())) {
             Toast.makeText(requireContext(), "Category already exists.", Toast.LENGTH_SHORT).show()
             return
